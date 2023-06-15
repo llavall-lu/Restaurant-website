@@ -1,0 +1,724 @@
+/*! Navbar section */
+/* Define the navbar styles */
+#navbar {
+  overflow: hidden; /* Hide any content that overflows the navbar */
+  background-color: #0e1721; /* Set the background color */
+  height: 70px; /* Set the height of the navbar */
+  position: sticky; /* Make the navbar stick to the top of the page */
+  top: 0; /* Position the navbar at the top of the page */
+  z-index: 100; /* Set the stacking order of the navbar to 100 making sure nothing overlaps it */
+}
+
+/* Define the styles for the links inside the navbar */
+#navbar a {
+  float: right; /* Float the links to the right */
+  display: block; /* Display the links as block elements */
+  color: white; /* Sets the text color */
+  text-align: center; /* Center the text */
+  padding: 24px 16px; /* Set the padding around the links */
+  text-decoration: none; /* Remove the underline from the links */
+  position: relative; /* Position the links relative to their normal position */
+  font-family: cursive; /* Set the font family for the links */
+}
+
+/* Add a line below the links when hovered */
+#navbar a::after {
+  content: "";
+  display: block; /* Display the content as a block element */
+  position: absolute; /* Position the content as absolute */
+  left: 0; 
+  bottom: 0; 
+  height: 2px; /* Set the height of the content to 2px */
+  width: 100%; /* Set the width of the content to 100% */
+  background-color: transparent; /* Set the initial background color as transparent */
+  transition: background-color 0.3s; /* Add a smooth transition effect for the background color */
+}
+
+/* Change the background color of the line below the links when hovered */
+#navbar a:hover::after {
+  background-color: #ffc999; /* Set the background color of the content */
+}
+
+/* Change the color of the links when hovered */
+#navbar a:hover {
+  color: #ffc999; /* Set the text color of the links */
+}
+
+/* Adjust the margin of the right-aligned links on smaller screens */
+#navbar #navright {
+  margin-right: 55px; /* Set the margin on the right side */
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+  #navbar {
+    height: auto; /* Reset the height of the navbar */
+    position: static; /* Remove the sticky position */
+  }
+
+  #navbar a {
+    float: none; /* Reset the float property */
+    display: block; /* Display the links as block elements */
+    padding: 16px; /* Set the padding around the links */
+    text-align: center; /* Center the text */
+  }
+
+  #navbar #navright {
+    margin-right: 0; /* Reset the margin on the right side */
+  }
+}
+
+/*! Settings overlay section */
+/* CSS for the settings overlay */
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: width 0.3s, opacity 0.3s;
+  z-index: 999;
+}
+
+/* CSS for opening the settings overlay */
+.settings-overlay.open {
+  width: 300px;
+  opacity: 1;
+}
+
+/* CSS for the settings button */
+#settings-button {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+/* CSS for the lines in the settings button */
+#settings-button span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+/* CSS for the hover effect on the lines in the settings button */
+#settings-button:hover span {
+  background-color: #ffc999;
+}
+
+/* CSS for adding spacing between the lines in the settings button */
+#settings-button span:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+/* CSS for the pointer events on the settings overlay */
+.settings-overlay {
+  pointer-events: none;
+  /* Disable pointer events by default */
+}
+
+/* CSS for enabling pointer events when the settings overlay is open */
+.settings-overlay.open {
+  pointer-events: auto;
+  /* Enable pointer events when open */
+}
+
+/* CSS for the content within the settings overlay */
+.settings-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #3f536b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* CSS for the heading within the settings content */
+.settings-content h2 {
+  margin-bottom: 20px;
+}
+
+/* CSS for the list within the settings content */
+.settings-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* CSS for the list items within the settings content */
+.settings-content li {
+  margin-bottom: 10px;
+}
+
+/* CSS for the links within the settings content */
+.settings-content a {
+  display: block;
+  background-color: #0e1721;
+  margin-top: 5%;
+  text-decoration: none;
+  transition: color 0.6s;
+  width: 270px;
+}
+
+/* CSS for the hover effect on the links within the settings content */
+.settings-content a:hover {
+  color: #ffc999;
+}
+
+
+/*! Slideshow section */
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Dim overlay */
+.slideshow-container::before {
+  content: "";
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Slideshow buttons */
+.slideshow-button {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Slideshow text */
+.slideshow-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: cursive;
+}
+
+.slideshow-text h2 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.slideshow-text p {
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Hide slides */
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .slideshow-container {
+    height: auto; /* Adjust the height for mobile devices */
+  }
+
+  .slideshow-button {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Hide slideshow buttons on mobile devices */
+  }
+
+  .slideshow-text {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .slideshow-text h2 {
+    font-size: 24px; /* Adjust the font size of the heading for mobile devices */
+  }
+
+  .slideshow-text p {
+    font-size: 16px; /* Adjust the font size of the text for mobile devices */
+  }
+
+  .mySlides img {
+    height: auto; /* Adjust the height of the slideshow images for mobile devices */
+  }
+}
+
+/*! Location Image section */
+.image-with-text {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 5%;
+}
+
+.image-with-text img {
+  width: 50%; /* Adjust the width of the image as needed */
+  height: auto;
+}
+
+.image-with-text .image-text {
+  margin-left: 20px;
+  font-family: cursive;
+  color: #ffffff;
+}
+
+.image-with-text h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.image-with-text p {
+  font-size: 24px;
+  text-align: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .image-with-text {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-with-text img {
+    width: 100%; /* Adjust the width of the image for mobile devices */
+    margin-bottom: 10px;
+  }
+
+  .image-with-text .image-text {
+    margin-left: 0;
+  }
+
+  .image-with-text h2 {
+    font-size: 28px; /* Adjust the font size of the heading for mobile devices */
+  }
+
+  .image-with-text p {
+    font-size: 20px; /* Adjust the font size of the text for mobile devices */
+  }
+}
+
+/*! Image horizontal section */
+.grid-container1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+}
+
+.grid-item {
+  position: relative;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item:hover .overlay1 {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .grid-container1 {
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for mobile devices */
+  }
+  
+  .grid-item {
+    position: relative;
+    padding-bottom: 0;
+  }
+  
+  .grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .text {
+    font-size: 16px; /* Adjust the font size of the text for mobile devices */
+  }
+}
+
+
+/*! Poster Section */
+.poster-section {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: white;
+  font-family: cursive;
+}
+
+.poster-section h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.poster-section p {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+}
+
+.poster-section .poster-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.poster-section .poster-grid img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .poster-section p {
+    max-width: 100%;
+    font-size: 20px; /* Adjust the font size as per your preference */
+  }
+
+  .poster-section .poster-grid {
+    grid-template-columns: 1fr; /* Display one column on mobile devices */
+    gap: 20px;
+    max-width: 90%;
+  }
+}
+
+/*! Bottom image button selection */
+.image-section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 50vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-content {
+  text-align: center;
+}
+
+.overlay h2 {
+  color: white;
+  font-size: 24px;
+  font-family: cursive;
+  margin-bottom: 10px;
+}
+
+.overlay-button {
+  background-color: transparent;
+  color: #ffc999;
+  padding: 10px 20px;
+  border: 2px solid #ffc999;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+}
+
+.overlay-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .image-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container img {
+    height: auto;
+  }
+}
+
+/*? End of section */
+/*! Star of Footer section*/
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.grid-item {
+  padding: 10px;
+}
+
+.right-align {
+  text-align: right;
+}
+footer p {
+  text-align: center;
+}
+/*! Body section */
+body {
+  background-color: #1f252d;
+  margin: 0;
+  padding: 20;
+  max-width: 100%;
+}
+/*! Menu page menu */
+.grid-container2 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.imgMenu {
+  text-align: center;
+}
+
+.textMenu {
+  text-align: center;
+  grid-row: span 1;
+  grid-column: span 2;
+  align-self: center;
+  color: #ffffff;
+  font-family: cursive;
+}
+
+.imgMenu img {
+  max-width: 100%;
+  height: auto;
+}
+
+.menuTitles {
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: #ffc999;
+  font-size: 36px;
+  margin-left: 17%;
+  font-family: cursive;
+}
+
+.line {
+  width: 70%;
+  height: 1px;
+  background-color: #ffc999;
+  margin: 0 auto;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .grid-container2 {
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns for mobile layout */
+    max-width: 90%; /* Adjust the max-width for better mobile presentation */
+    margin-top: 20px; /* Adjust the top margin for better spacing */
+    grid-gap: 5px; /* Adjust the grid gap for tighter spacing */
+  }
+
+  .textMenu {
+    grid-column: auto; /* Reset the grid column for mobile layout */
+    margin-top: 10px; /* Adjust the top margin for better spacing */
+  }
+
+  .menuTitles {
+    font-size: 24px; /* Adjust the font size for better readability */
+    margin-left: 0; /* Reset the left margin for mobile layout */
+    text-align: center; /* Center align the menu titles */
+  }
+
+  .line {
+    width: 90%; /* Adjust the width for better mobile presentation */
+    margin-top: 10px; /* Adjust the top margin for better spacing */
+  }
+}
+
+/*! Faq questions section */
+.container-faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 80%;
+  height: 10vh;
+  background-color: #687D95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.faqQuest {
+  color: #ffffff;
+  text-align: left;
+  font-size: 36px;
+  margin-left: 5vh;
+  margin-right: 10vh;
+  font-family: cursive;
+}
+
+.faqText {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #ffffff;
+  max-width: 70%;
+  display: none;
+}
+
+.align-right {
+  margin-left: auto;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .faqQuest {
+    font-size: 24px; /* Adjust the font size for better readability on mobile */
+    margin-left: 2vh; /* Adjust the left margin for better spacing on mobile */
+    margin-right: 2vh; /* Adjust the right margin for better spacing on mobile */
+  }
+
+  .faqText {
+    font-size: 18px; /* Adjust the font size for better readability on mobile */
+    max-width: 90%; /* Adjust the max-width for better mobile presentation */
+  }
+
+  .align-right {
+    margin-left: 2vh; /* Adjust the left margin for better spacing on mobile */
+  }
+}
+
+/*! */
+.form-container {
+  max-width: 70%;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+  width: 98%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.form-container button[type="submit"] {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid #ffc999;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-container button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.form-ttext {
+  font-family: cursive;
+  padding-top: 1%;
+}

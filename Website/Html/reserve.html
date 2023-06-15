@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/stylesheet.css" />
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <!-- Add the navigation bar -->
+    <div id="navbar">
+      <div id="settings-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="settings-overlay">
+        <div class="settings-content">
+          <ul>
+            <li><a href="#">Option 1</a></li>
+            <li><a href="#">Option 2</a></li>
+            <li><a href="#">Option 3</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <a id="navright" href="Reserve.html">Reserve Now</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Menu.html">Menu</a>
+      <a href="Index.html">Home</a>
+    </div>
+
+    <!-- Add the slideshow container -->
+    <div class="slideshow-container">
+      <!-- Add the individual slides -->
+      <div class="mySlides">
+        <img src="Images/coffee-BottomBtn.jpg" alt="Slide 1" />
+      </div>
+      <div class="mySlides">
+        <img src="Images/restaurant-BottomBtn.jpg" alt="Slide 2" />
+      </div>
+      <div class="mySlides">
+        <img src="Images/restaurant-BottomBtn.jpg" alt="Slide 3" />
+      </div>
+      <div class="slideshow-text">
+        <h2>Reservation</h2>
+        <p>viverra tellus in hac habitasse platea dictumst vestibulum</p>
+      </div>
+    </div>
+
+    <div class="menuTitles">Reserve Now</div>
+    <div class="line"></div>
+
+    <div class="form-container">
+      <form method="post" action="reservation.php">
+        <label class="form-ttext" for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label class="form-ttext" for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label class="form-ttext" for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label class="form-ttext" for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br>
+
+        <label class="form-ttext" for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    
+
+    <div class="image-section">
+      <div class="image-container">
+        <img src="Images/restaurant-BottomBtn.jpg" alt="Contact Us" />
+        <div class="overlay">
+          <div class="overlay-content">
+            <h2>Contact Us</h2>
+            <a href="Contact.html"
+              ><button class="overlay-button">Call now</button></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="Images/menu-top.jpg" alt="Menu" />
+        <div class="overlay">
+          <div class="overlay-content">
+            <h2>Check the menu</h2>
+            <a href="Menu.html"
+              ><button class="overlay-button">Menu</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- footer Section -->
+    <footer>
+      <p>&copy; 2023 Restaurant Website</p>
+      <div class="grid-container">
+        <div class="grid-item">
+          <p>40 Place in Spain</p>
+          <p>1-0100-154-1537</p>
+          <p>contact@email.com</p>
+        </div>
+        <div class="grid-item right-align">
+          <p><span class="right-align">Monday - Saturday 5pm - 10pm</span></p>
+          <p><span class="right-align">Tuesday CLOSED</span></p>
+          <p><span class="right-align">Sunday 3pm - 10pm</span></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <!-- JavaScript for functionality -->
+  <script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change slide every 2 seconds
+
+      // Settings button section
+      var settingsButton = document.getElementById("settings-button");
+      var settingsOverlay = document.querySelector(".settings-overlay");
+
+      // Toggle the settings overlay when the button is clicked
+      settingsButton.addEventListener("click", function () {
+        settingsOverlay.classList.toggle("open");
+      });
+    }
+  </script>
+</html>
